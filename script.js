@@ -1,22 +1,18 @@
 // Destacar automaticamente o link da página atual na navbar
 document.addEventListener("DOMContentLoaded", () => {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll("#nav-links a");
+    const navLinks = document.querySelectorAll("#nav-menu a");
 
     navLinks.forEach(link => {
         const href = link.getAttribute("href");
-        
-        // Remove classe active de todos
         link.classList.remove("active");
-        
-        // Adiciona active na página correta
         if (href === currentPage) {
             link.classList.add("active");
         }
     });
 });
 
-// Validação do Formulário de Contato (usado em contato.html)
+// Validação do Formulário de Contato
 function validarFormulario() {
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
@@ -24,16 +20,13 @@ function validarFormulario() {
     
     let isValid = true;
 
-    // Limpa mensagens de erro anteriores
     document.querySelectorAll(".error").forEach(el => el.remove());
 
-    // Validação do Nome
     if (!nome.value.trim()) {
         mostrarErro(nome, "O nome é obrigatório");
         isValid = false;
     }
 
-    // Validação do Email
     if (!email.value.trim()) {
         mostrarErro(email, "O e-mail é obrigatório");
         isValid = false;
@@ -42,7 +35,6 @@ function validarFormulario() {
         isValid = false;
     }
 
-    // Validação da Mensagem
     if (!mensagem.value.trim()) {
         mostrarErro(mensagem, "A mensagem é obrigatória");
         isValid = false;
@@ -51,7 +43,6 @@ function validarFormulario() {
     return isValid;
 }
 
-// Função auxiliar para mostrar erro
 function mostrarErro(input, mensagem) {
     const erro = document.createElement("p");
     erro.className = "error";
@@ -63,13 +54,11 @@ function mostrarErro(input, mensagem) {
     input.style.borderColor = "#ef4444";
 }
 
-// Validação simples de email
 function validarEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-// Simulação de envio do formulário
 function simularEnvioFormulario(form) {
     const btn = form.querySelector("button");
     const textoOriginal = btn.textContent;
@@ -77,19 +66,15 @@ function simularEnvioFormulario(form) {
     btn.textContent = "Enviando...";
     btn.disabled = true;
 
-    // Simula delay de envio
     setTimeout(() => {
-        alert("✅ Mensagem enviada com sucesso!\n\nObrigado pelo contato, Marlon retornará em breve.");
-        
-        // Limpa o formulário
+        alert("✅ Mensagem enviada com sucesso!\n\nObrigado pelo contato!");
         form.reset();
-        
-        // Restaura botão
         btn.textContent = textoOriginal;
         btn.disabled = false;
     }, 1500);
 }
 
+// Alternar tema claro/escuro
 function toggleTema() {
     document.documentElement.classList.toggle("dark");
     
@@ -105,7 +90,7 @@ function toggleTema() {
     }
 }
 
-// Aplicar tema salvo ao carregar a página
+// Aplicar tema salvo
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("tema") === "dark") {
         document.documentElement.classList.add("dark");
@@ -114,5 +99,22 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.classList.remove("fa-moon");
             icon.classList.add("fa-sun");
         }
+    }
+});
+
+// MENU MOBILE
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    
+    const icon = mobileMenuToggle.querySelector('i');
+    if (mobileMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
     }
 });

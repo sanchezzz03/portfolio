@@ -10,42 +10,62 @@
 <body>
 
     <nav>
-        <div class="nav-container">
+        <div class="nav-bar">
             <a href="index.html" class="logo">Lucas</a>
-            <div class="nav-links" id="nav-links">
+
+            <!-- Links desktop -->
+            <div class="nav-menu" id="nav-menu">
                 <a href="index.html">Sobre Mim</a>
                 <a href="formacao.html">Formação</a>
-                <a href="portfolio.html" class="active">Portfólio</a>
+                <a href="portfolio.html">Portfólio</a>
                 <a href="contato.html">Contato</a>
             </div>
-            <div style="display: flex; align-items: center; gap: 16px;">
-                <button onclick="toggleTema()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 8px; border-radius: 50%; color: #94a3b8;">
+
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <!-- Botão Dark Mode -->
+                <button onclick="toggleTema()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 8px; border-radius: 50%;">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
-                <a href="contato.html" class="btn-contact">Entrar em contato</a>
+
+                <!-- Botão de Contato (desktop) -->
+                <a href="contato.html" class="contact-btn" id="btn-contact-desktop">Entrar em contato</a>
+
+                <!-- Menu Mobile -->
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html">Sobre Mim</a>
+            <a href="formacao.html">Formação</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="contato.html">Contato</a>
+            <a href="contato.html" class="contact-btn" style="margin-top: 20px; text-align: center;">Entrar em contato</a>
         </div>
     </nav>
 
-        <main style="padding-top: 100px; padding-bottom: 120px; max-width: 1100px; margin: 0 auto; padding-left: 24px; padding-right: 24px;">
+    <main style="padding-top: 130px; padding-bottom: 180px; max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px;">
         <h1 style="font-size: 3.5rem; text-align: center; margin-bottom: 60px;">Meus Projetos</h1>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px;">
 
             <!-- TCC -->
-            <div class="formacao-card" style="padding: 0; overflow: hidden; border: 3px solid #2563eb;">
+            <div class="content-card" style="padding: 0; overflow: hidden; border: 3px solid #2563eb;">
                 <div style="height: 240px; background: linear-gradient(135deg, #1e40af, #3b82f6); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem; position: relative;">
                     <i class="fas fa-graduation-cap"></i>
                     <span style="position: absolute; top: 16px; right: 16px; background: #eab308; color: #1e3a8a; font-size: 0.9rem; padding: 4px 12px; border-radius: 9999px; font-weight: bold;">TCC</span>
                 </div>
                 <div style="padding: 28px;">
                     <h3 style="font-size: 1.65rem; margin-bottom: 12px;">Guia para Melhor Uso de Inteligências Artificiais Generativas nos Estudos</h3>
-                    <p style="color: #52525b; margin-bottom: 16px;">Trabalho de Conclusão de Curso desenvolvido em grupo com pesquisa, guia prático e análise de metodologias com objetivo de auxiliar estudantes no uso de IA para maximizar seus resultados.</p>
+                    <p style="color: #52525b; margin-bottom: 16px;">Trabalho de Conclusão de Curso desenvolvido em grupo com pesquisa, guia prático e análise de metodologias.</p>
                 </div>
             </div>
 
-            <!-- Loja de Perfumes (PHP) -->
-            <div class="formacao-card" style="padding: 0; overflow: hidden; border: 3px solid #db2777;">
+            <!-- Loja de Perfumes -->
+            <div class="content-card" style="padding: 0; overflow: hidden; border: 3px solid #db2777;">
                 <div style="height: 240px; background: linear-gradient(135deg, #c026d3, #db2777); display: flex; align-items: center; justify-content: center; color: white; font-size: 4.8rem;">
                     <i class="fas fa-store"></i>
                 </div>
@@ -61,14 +81,11 @@
                         <span style="background: #f3e8ff; color: #7e22ce; padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem;">Carrinho</span>
                         <span style="background: #f3e8ff; color: #7e22ce; padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem;">Login Seguro</span>
                     </div>
-                    <p style="font-size: 0.95rem; color: #52525b;">
-                        Funcionalidades: Cadastro de produtos, carrinho de compras, pedidos, criptografia de senha e painel administrativo.
-                    </p>
                 </div>
             </div>
 
-            <!-- Loja de Carros (PHP) -->
-            <div class="formacao-card" style="padding: 0; overflow: hidden; border: 3px solid #f10404;">
+            <!-- Loja de Carros -->
+            <div class="content-card" style="padding: 0; overflow: hidden; border: 3px solid #f10404;">
                 <div style="height: 240px; background: linear-gradient(135deg, #8d0707, #f10404); display: flex; align-items: center; justify-content: center; color: white; font-size: 4.8rem;">
                     <i class="fas fa-store"></i>
                 </div>
@@ -84,21 +101,18 @@
                         <span style="background: #ff9b9b; color: #680000; padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem;">Carrinho</span>
                         <span style="background: #ff9b9b; color: #680000; padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem;">Login Seguro</span>
                     </div>
-                    <p style="font-size: 0.95rem; color: #52525b;">
-                        Funcionalidades: Cadastro de produtos, carrinho de compras, pedidos, criptografia de senha e painel administrativo.
-                    </p>
                 </div>
             </div>
 
             <!-- Portfólio Pessoal -->
-            <div class="formacao-card" style="padding: 0; overflow: hidden; border: 3px solid #15803d;">
+            <div class="content-card" style="padding: 0; overflow: hidden; border: 3px solid #15803d;">
                 <div style="height: 240px; background: linear-gradient(135deg, #16a34a, #15803d); display: flex; align-items: center; justify-content: center; color: white; font-size: 4.5rem;">
                     <i class="fas fa-laptop-code"></i>
                 </div>
                 <div style="padding: 28px;">
                     <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Portfólio Pessoal</h3>
-                    <p style="color: #52525b; margin-bottom: 20px;">Site responsivo desenvolvido com HTML5, CSS3 puro e JavaScript (Dark Mode incluso).</p>
-                    <a href="https://github.com/sanchezzz03" target="_blank" style="color: #2563eb; font-weight: 600;">Ver no GitHub →</a>
+                    <p style="color: #52525b; margin-bottom: 20px;">Site responsivo desenvolvido com HTML5, CSS3 puro e JavaScript.</p>
+                    <a href="https://github.com/sanchezzz03/portfolio" target="_blank" style="color: #2563eb; font-weight: 600;">Ver no GitHub →</a>
                 </div>
             </div>
 

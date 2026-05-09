@@ -1,10 +1,11 @@
+/* fonte */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
     --blue: #2563eb;
 }
 
-/* ====================== ESTILOS GERAIS ====================== */
+/* GERAL */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +19,7 @@ body {
     background: #fafafa;
 }
 
-/* ====================== NAV ====================== */
+/* NAV */
 nav {
     position: fixed;
     top: 0;
@@ -30,7 +31,7 @@ nav {
     z-index: 1000;
 }
 
-.nav-bar {
+.nav-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 24px;
@@ -48,7 +49,7 @@ nav {
     text-decoration: none;
 }
 
-.nav-menu a {
+.nav-links a {
     margin-left: 32px;
     text-decoration: none;
     color: #3f3f46;
@@ -56,13 +57,13 @@ nav {
     transition: all 0.3s;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--blue);
     font-weight: 600;
 }
 
-.contact-btn {
+.btn-contact {
     padding: 10px 20px;
     background: var(--blue);
     color: white;
@@ -72,12 +73,12 @@ nav {
     transition: all 0.3s;
 }
 
-.contact-btn:hover {
+.btn-contact:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
 }
 
-/* ====================== FOOTER ====================== */
+/* FOOTER */
 footer {
     position: fixed;
     bottom: 0;
@@ -111,8 +112,8 @@ footer {
     color: white;
 }
 
-/* ====================== LANDING (ANTIGO HERO) ====================== */
-.landing-section {
+/* HERO */
+.hero {
     min-height: 100vh;
     padding-top: 100px;
     display: grid;
@@ -124,26 +125,26 @@ footer {
     gap: 60px;
 }
 
-.landing-text h1 {
+.hero-text h1 {
     font-size: 4.5rem;
     line-height: 1.1;
     margin-bottom: 16px;
 }
 
-.landing-text .subtitle {
+.hero-text .subtitle {
     font-size: 2.8rem;
     color: #52525b;
     margin-bottom: 24px;
 }
 
-.landing-text p {
+.hero-text p {
     font-size: 1.25rem;
     color: #52525b;
     max-width: 420px;
     margin-bottom: 40px;
 }
 
-.landing-buttons {
+.hero-buttons {
     display: flex;
     gap: 16px;
 }
@@ -179,13 +180,13 @@ footer {
 }
 
 /* Foto com blob */
-.landing-image {
+.hero-image {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.landing-image img {
+.hero-image img {
     width: 380px;
     height: 380px;
     object-fit: cover;
@@ -212,8 +213,8 @@ main {
     padding-bottom: 140px;
 }
 
-/* ====================== CARDS ====================== */
-.content-card {
+/* CARDS (Formação e Portfólio) */
+.formacao-card {
     background: white;
     padding: 32px;
     border-radius: 20px;
@@ -221,7 +222,7 @@ main {
     transition: all 0.3s;
 }
 
-/* ====================== DARK MODE ====================== */
+/* DARK MODE */
 .dark {
     --bg: #0f172a;
     --text: #e2e8f0;
@@ -233,42 +234,45 @@ main {
     color: var(--text);
 }
 
+/* Navbar */
 .dark nav,
-.dark .nav-bar {
+.dark .nav-container {
     background: rgba(15, 23, 42, 0.97);
 }
 
-.dark .nav-menu a {
+.dark .nav-links a {
     color: #f1f5f9 !important;
 }
 
-.dark .nav-menu a:hover,
-.dark .nav-menu a.active {
+.dark .nav-links a:hover,
+.dark .nav-links a.active {
     color: var(--accent) !important;
 }
 
-.dark .content-card {
+/* Cards no Dark Mode */
+.dark .formacao-card {
     background: transparent !important;
     box-shadow: none !important;
     border: 1px solid #334155;
 }
 
-.dark .content-card h2,
-.dark .content-card strong {
+.dark .formacao-card h2,
+.dark .formacao-card strong {
     color: white !important;
 }
 
-.dark .content-card p {
+.dark .formacao-card p {
     color: #cbd5e1 !important;
 }
 
+/* Hero */
 .dark .subtitle {
     color: var(--accent) !important;
 }
 
 /* Formulário de Contato */
 .dark form,
-.dark .contact-form {
+.dark .form-card {
     background: #1e2937 !important;
     color: white !important;
 }
@@ -290,12 +294,26 @@ main {
     background: #475569 !important;
 }
 
+/* Footer */
 .dark footer {
     background: #020617;
 }
 
-/* ====================== MENU MOBILE ====================== */
-.mobile-menu-toggle {
+/* Responsivo */
+@media (max-width: 968px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 24px;
+    }
+    .nav-links a {
+        margin-left: 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* MENU MOBILE */
+.button-mobile {
     display: none;
     background: none;
     border: none;
@@ -329,24 +347,20 @@ main {
     border-bottom: none;
 }
 
+/* Ativa o menu mobile */
 .mobile-menu.active {
     display: flex;
 }
 
 /* Responsivo */
 @media (max-width: 968px) {
-    .landing-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 40px 24px;
-    }
-    .nav-menu {
+    .nav-links {
         display: none;
     }
-    .mobile-menu-toggle {
+    .button-mobile {
         display: block;
     }
-    .contact-btn {
+    .btn-contact {
         display: none;
     }
 }

@@ -10,37 +10,51 @@
 <body>
 
     <nav>
-        <div class="nav-container">
+        <div class="nav-bar">
             <a href="index.html" class="logo">Lucas</a>
-            
-            <div class="nav-links" id="nav-links">
+
+            <!-- Links desktop -->
+            <div class="nav-menu" id="nav-menu">
                 <a href="index.html">Sobre Mim</a>
                 <a href="formacao.html">Formação</a>
                 <a href="portfolio.html">Portfólio</a>
                 <a href="contato.html">Contato</a>
             </div>
 
-            <div style="display: flex; align-items: center; gap: 16px;">
-                <!-- Botão modo escuro -->
-                <button onclick="toggleTema()" 
-                        style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 8px; border-radius: 50%; color: #94a3b8;"
-                        title="Alternar tema">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <!-- Botão Dark Mode -->
+                <button onclick="toggleTema()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 8px; border-radius: 50%;">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
 
-                <a href="contato.html" class="btn-contact">Entrar em contato</a>
+                <!-- Botão de Contato (desktop) -->
+                <a href="contato.html" class="contact-btn" id="btn-contact-desktop">Entrar em contato</a>
+
+                <!-- Menu Mobile -->
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html">Sobre Mim</a>
+            <a href="formacao.html">Formação</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="contato.html">Contato</a>
+            <a href="contato.html" class="contact-btn" style="margin-top: 20px; text-align: center;">Entrar em contato</a>
         </div>
     </nav>
 
-    <main style="padding-top: 100px; padding-bottom: 120px; max-width: 1100px; margin: 0 auto; padding-left: 24px; padding-right: 24px;">
-        <section class="hero">
-            <div class="hero-text">
+    <main style="padding-top: 130px; padding-bottom: 180px; max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px;">
+        <section class="landing-section">
+            <div class="landing-text">
                 <h1>Olá, eu sou Lucas Sanchez</h1>
                 <p class="subtitle">Analista de TI</p>
                 <p>Tenho 19 anos, moro em Encruizilhada do Sul/RS. Atualmente trabalho como Analista de TI na empresa eBZ Tecnologia, onde busco evoluir diariamente na área de Tecnologia e Segurança da Informação.</p>
 
-                <div class="hero-buttons">
+                <div class="landing-buttons">
                     <a href="contato.html" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Fale comigo
                     </a>
@@ -48,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="hero-image">
+            <div class="landing-image">
                 <div class="blob"></div>
                 <img src="foto_redimensionada.png" alt="Lucas Sanchez Vicente">
             </div>
@@ -62,21 +76,15 @@
                 <span class="logo" style="color: white; font-size: 22px;">Lucas</span>
                 <span style="margin-left: 12px; color: #71717a;">© 2026</span>
             </div>
-            
             <div>
                 <a href="index.html">Sobre Mim</a>
                 <a href="formacao.html">Formação</a>
                 <a href="portfolio.html">Portfólio</a>
                 <a href="contato.html">Contato</a>
             </div>
-            
             <div>
-                <a href="https://br.linkedin.com/in/lucas-sanchez-vicente-836632349" target="_blank">
-                    <i class="fab fa-linkedin fa-lg"></i>
-                </a>
-                <a href="https://github.com/sanchezzz03" target="_blank" style="margin-left: 24px;">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
+                <a href="https://br.linkedin.com/in/lucas-sanchez-vicente-836632349" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/sanchezzz03" target="_blank" style="margin-left: 24px;"><i class="fab fa-github fa-lg"></i></a>
             </div>
         </div>
     </footer>
